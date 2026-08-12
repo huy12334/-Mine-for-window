@@ -1,7 +1,3 @@
-Dưới đây là hướng dẫn cài đặt được viết lại dưới dạng `README.md`:
-
----
-
 # Hướng dẫn cài đặt
 
 ## 1. Tải về
