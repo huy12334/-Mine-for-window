@@ -1,0 +1,122 @@
+## 📖 HƯỚNG DẪN TÌM ĐƯỜNG DẪN MINECRAFT| ưu tiên minecraft for window tải trên microsoft store |đã test bản v26.42
+
+================================================================================
+                CÁCH TÌM THƯ MỤC CÀI ĐẶT MINECRAFT
+================================================================================
+
+Để chạy script, bạn cần cung cấp đường dẫn đến thư mục cài đặt Minecraft.
+
+Dưới đây là các cách để tìm đường dẫn đó:
+
+
+🔹 CÁCH 1: MINECRAFT GAME PASS (Windows 10/11)
+--------------------------------------------------------------------------------
+1. Mở File Explorer (nhấn phím Windows + E)
+2. Mở ổ đĩa bạn đã cài Minecraft (thường là ổ D: hoặc C:)
+3. Mở thư mục "XboxGames"
+4. Tìm thư mục có tên dạng mã GUID (ví dụ: 7792D9CE-355A-493C-AFBD-768F4A77C3B0)
+5. Mở thư mục đó và mở tiếp thư mục "Content"
+
+Đường dẫn sẽ có dạng:
+D:\XboxGames\[MÃ GUID]\Content
+
+Ví dụ: D:\XboxGames\7792D9CE-355A-493C-AFBD-768F4A77C3B0\Content
+
+Lưu ý: MÃ GUID sẽ khác nhau trên mỗi máy tính!
+
+
+🔹 CÁCH 2: MINECRAFT LAUNCHER (Mojang)
+--------------------------------------------------------------------------------
+1. Mở File Explorer (nhấn phím Windows + E)
+2. Copy và paste dòng sau vào thanh địa chỉ:
+   %APPDATA%\.minecraft
+3. Nhấn Enter
+
+Đường dẫn sẽ là:
+C:\Users\[TÊN USER]\AppData\Roaming\.minecraft
+
+Ví dụ: C:\Users\Admin\AppData\Roaming\.minecraft
+
+Nếu bạn muốn cài mod, đường dẫn sẽ là:
+C:\Users\[TÊN USER]\AppData\Roaming\.minecraft\mods
+
+
+🔹 CÁCH 3: TÌM BẰNG TASK MANAGER
+--------------------------------------------------------------------------------
+1. Mở Minecraft lên
+2. Mở Task Manager (nhấn Ctrl + Shift + Esc)
+3. Trong tab "Processes", tìm Minecraft
+4. Click chuột phải vào Minecraft -> Chọn "Open file location"
+5. Cửa sổ File Explorer sẽ mở ra - đó chính là thư mục cài đặt
+
+Copy đường dẫn trên thanh địa chỉ để sử dụng.
+
+
+🔹 CÁCH 4: TÌM BẰNG POWERSHELL (TỰ ĐỘNG)
+--------------------------------------------------------------------------------
+Mở PowerShell và chạy lệnh sau:
+
+$drives = Get-PSDrive -PSProvider FileSystem
+foreach ($drive in $drives) {
+    $path = Join-Path $drive.Root "XboxGames"
+    if (Test-Path $path) {
+        $folders = Get-ChildItem -Path $path -Directory
+        foreach ($folder in $folders) {
+            $content = Join-Path $folder.FullName "Content"
+            if (Test-Path $content) {
+                Write-Host "Found: $content" -ForegroundColor Green
+            }
+        }
+    }
+}
+
+Script sẽ hiển thị đường dẫn Minecraft của bạn.
+
+
+📌 CÁC ĐƯỜNG DẪN THƯỜNG GẶP
+--------------------------------------------------------------------------------
+Game Pass (ổ D):      D:\XboxGames\[GUID]\Content
+Game Pass (ổ C):      C:\XboxGames\[GUID]\Content
+Minecraft Launcher:   C:\Users\[User]\AppData\Roaming\.minecraft
+TLauncher:            C:\Users\[User]\AppData\Roaming\.tlauncher
+Portable:             D:\Minecraft
+
+
+⚠️ LƯU Ý QUAN TRỌNG
+--------------------------------------------------------------------------------
+✓ Đường dẫn KHÔNG được có dấu cách thừa
+✓ Dùng dấu \ (backslash) KHÔNG dùng dấu / (forward slash)
+✓ Có tên ổ đĩa (C:, D:, ...) KHÔNG được bỏ
+✓ Không có dấu cách ở đầu hoặc cuối đường dẫn
+
+ĐÚNG:   D:\XboxGames\7792D9CE-355A-493C-AFBD-768F4A77C3B0\Content
+SAI:    D:XboxGames\7792D9CE-355A-493C-AFBD-768F4A77C3B0\Content
+SAI:    \XboxGames\7792D9CE-355A-493C-AFBD-768F4A77C3B0\Content
+SAI:    D:/XboxGames/7792D9CE-355A-493C-AFBD-768F4A77C3B0/Content
+
+
+🔧 MẸO COPY ĐƯỜNG DẪN TRỰC TIẾP
+--------------------------------------------------------------------------------
+1. Mở thư mục Content (hoặc .minecraft) trong File Explorer
+2. Click vào thanh địa chỉ (ở trên cùng)
+3. Bôi đen toàn bộ đường dẫn
+4. Nhấn Ctrl + C để Copy
+5. Nhấn Ctrl + V để Paste vào script
+
+
+================================================================================
+                    SAU KHI CÓ ĐƯỜNG DẪN, HÃY NHẬP VÀO ĐÂY:
+================================================================================
+
+Enter Minecraft folder path: [PASTE ĐƯỜNG DẪN VÀO ĐÂY]
+
+Ví dụ: D:\XboxGames\7792D9CE-355A-493C-AFBD-768F4A77C3B0\Content
+
+================================================================================
+
+---
+
+Nếu bạn vẫn không tìm thấy, hãy kiểm tra:
+1. Minecraft đã được cài đặt chưa?
+2. Bạn đang dùng bản Game Pass hay Launcher?
+3. Thử tìm file Minecraft.exe trong File Explorer
