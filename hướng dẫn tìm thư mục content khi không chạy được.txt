@@ -1,4 +1,4 @@
-## 📖 HƯỚNG DẪN TÌM ĐƯỜNG DẪN MINECRAFT| ưu tiên minecraft for window tải trên microsoft store |đã test bản v26.42
+## 📖 HƯỚNG DẪN TÌM ĐƯỜNG DẪN MINECRAFT| ưu tiên minecraft for window tải trên microsoft store | đã test bản v26.42
 
 ================================================================================
                 CÁCH TÌM THƯ MỤC CÀI ĐẶT MINECRAFT
@@ -41,45 +41,10 @@ Nếu bạn muốn cài mod, đường dẫn sẽ là:
 C:\Users\[TÊN USER]\AppData\Roaming\.minecraft\mods
 
 
-🔹 CÁCH 3: TÌM BẰNG TASK MANAGER
---------------------------------------------------------------------------------
-1. Mở Minecraft lên
-2. Mở Task Manager (nhấn Ctrl + Shift + Esc)
-3. Trong tab "Processes", tìm Minecraft
-4. Click chuột phải vào Minecraft -> Chọn "Open file location"
-5. Cửa sổ File Explorer sẽ mở ra - đó chính là thư mục cài đặt
-
-Copy đường dẫn trên thanh địa chỉ để sử dụng.
-
-
-🔹 CÁCH 4: TÌM BẰNG POWERSHELL (TỰ ĐỘNG)
---------------------------------------------------------------------------------
-Mở PowerShell và chạy lệnh sau:
-
-$drives = Get-PSDrive -PSProvider FileSystem
-foreach ($drive in $drives) {
-    $path = Join-Path $drive.Root "XboxGames"
-    if (Test-Path $path) {
-        $folders = Get-ChildItem -Path $path -Directory
-        foreach ($folder in $folders) {
-            $content = Join-Path $folder.FullName "Content"
-            if (Test-Path $content) {
-                Write-Host "Found: $content" -ForegroundColor Green
-            }
-        }
-    }
-}
-
-Script sẽ hiển thị đường dẫn Minecraft của bạn.
-
-
 📌 CÁC ĐƯỜNG DẪN THƯỜNG GẶP
 --------------------------------------------------------------------------------
 Game Pass (ổ D):      D:\XboxGames\[GUID]\Content
 Game Pass (ổ C):      C:\XboxGames\[GUID]\Content
-Minecraft Launcher:   C:\Users\[User]\AppData\Roaming\.minecraft
-TLauncher:            C:\Users\[User]\AppData\Roaming\.tlauncher
-Portable:             D:\Minecraft
 
 
 ⚠️ LƯU Ý QUAN TRỌNG
@@ -110,7 +75,7 @@ SAI:    D:/XboxGames/7792D9CE-355A-493C-AFBD-768F4A77C3B0/Content
 
 Enter Minecraft folder path: [PASTE ĐƯỜNG DẪN VÀO ĐÂY]
 
-Ví dụ: D:\XboxGames\7792D9CE-355A-493C-AFBD-768F4A77C3B0\Content
+Example: D:\XboxGames\7792D9CE-355A-493C-AFBD-768F4A77C3B0\Content
 
 ================================================================================
 
